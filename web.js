@@ -7,7 +7,7 @@ app.get('/', function(request, response) {
 
 var htmlData = '';
 fs.readFileSync('index.html', 'utf8',function (err, data) {
-  if (err) throw err;
+  if (err) { console.log(err); }
   console.log(data);
 });
 
