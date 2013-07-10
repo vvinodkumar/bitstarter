@@ -7,9 +7,11 @@ app.get('/', function(request, response) {
 
 
 fs.readFileSync('index.html', 'utf8',function (err, data) {
-  if (err) throw err;
- response.send(data);
-});
+ if (err) throw err;
+  response.writeHead(200, {'Content-Type': 'text/html','Content-Length':data.length});
+  response.write(data);
+  response.end();
+ });
 
 
 });
